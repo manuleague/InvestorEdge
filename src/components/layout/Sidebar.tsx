@@ -10,9 +10,13 @@ import {
   BarChart3,
   Globe,
   Settings,
-  Star
+  Star,
+  UserCircle,
+  LogOut
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "../../contexts/auth-context";
+import { useNavigate } from "react-router-dom";
 
 interface SidebarProps {
   activeView: string;
@@ -32,6 +36,14 @@ const navigation = [
 ];
 
 export function Sidebar({ activeView, onViewChange }: SidebarProps) {
+  const navigate = useNavigate();
+  const { signOut } = useAuth();
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate('/login');
+  };
+
   return (
     <div className="w-64 h-screen bg-card border-r border-border flex flex-col">
       {/* Logo & Brand */}
@@ -73,8 +85,8 @@ export function Sidebar({ activeView, onViewChange }: SidebarProps) {
         </div>
       </nav>
 
-      {/* Settings */}
-      <div className="p-4 border-t border-border">
+      {/* User Controls */}
+      <div className="p-4 border-t border-border space-y-2">
         <Button
           variant="ghost"
           className="w-full justify-start h-11 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-smooth"
@@ -82,6 +94,22 @@ export function Sidebar({ activeView, onViewChange }: SidebarProps) {
         >
           <Settings className="w-4 h-4 mr-3" />
           Settings
+        </Button>
+        <Button
+          variant="ghost"
+          className="w-full justify-start h-11 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-smooth"
+          onClick={() => navigate('/profile')}
+        >
+          <UserCircle className="w-4 h-4 mr-3" />
+          Profile
+        </Button>
+        <Button
+          variant="ghost"
+          className="w-full justify-start h-11 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-smooth"
+          onClick={handleSignOut}
+        >
+          <LogOut className="w-4 h-4 mr-3" />
+          Sign Out
         </Button>
       </div>
     </div>

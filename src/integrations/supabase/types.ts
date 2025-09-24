@@ -7,14 +7,66 @@ export type Json =
   | Json[]
 
 export type Database = {
-  // Allows to automatically instantiate createClient with right options
-  // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
     PostgrestVersion: "13.0.5"
   }
   public: {
     Tables: {
-      [_ in never]: never
+      portfolios: {
+        Row: {
+          id: string
+          user_id: string
+          stock_symbol: string
+          quantity: number
+          average_price: number
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          stock_symbol: string
+          quantity: number
+          average_price: number
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          stock_symbol?: string
+          quantity?: number
+          average_price?: number
+          created_at?: string
+          updated_at?: string
+        }
+      }
+      profiles: {
+        Row: {
+          id: string
+          email: string
+          full_name: string | null
+          updated_at: string
+          created_at: string
+          preferences: Json | null
+        }
+        Insert: {
+          id: string
+          email: string
+          full_name?: string | null
+          updated_at?: string
+          created_at?: string
+          preferences?: Json | null
+        }
+        Update: {
+          id?: string
+          email?: string
+          full_name?: string | null
+          updated_at?: string
+          created_at?: string
+          preferences?: Json | null
+        }
+      }
     }
     Views: {
       [_ in never]: never
