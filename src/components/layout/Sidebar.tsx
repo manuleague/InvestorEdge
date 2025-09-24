@@ -41,8 +41,8 @@ export function Sidebar({ activeView, onViewChange }: SidebarProps) {
             <TrendingUp className="w-5 h-5 text-primary-foreground" />
           </div>
           <div>
-            <h1 className="text-lg font-bold text-foreground">CapitalFlow</h1>
-            <p className="text-xs text-muted-foreground">Pro Trading Platform</p>
+            <h1 className="text-lg font-bold text-foreground">InvestorEdge</h1>
+            <p className="text-xs text-muted-foreground">AI Trading Platform</p>
           </div>
         </div>
       </div>
