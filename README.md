@@ -4,7 +4,7 @@
 
 Welcome to InvestorEdge - your AI-powered investment platform that combines cutting-edge artificial intelligence with robust financial analysis tools to give you an edge in your investment decisions.
 
-🌐 **Live Demo**: [InvestorEdge on Cloudflare](https://investor-edge.pages.dev)
+🌐 **Live Demo**: [InvestorEdge on Cloudflare](https://investoredge.pages.dev)
 
 ## Key Features
 
